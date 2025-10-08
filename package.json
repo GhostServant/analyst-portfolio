@@ -21,7 +21,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && npm run create-nojekyll",
+    "create-nojekyll": "node -e \"require('fs').writeFileSync('dist/.nojekyll', '')\"",
     "preview": "astro preview",
     "astro": "astro",
     "deploy": "npm run build && npm run deploy:gh-pages",
@@ -31,7 +32,7 @@
     "astro": "^4.0.0"
   },
   "devDependencies": {
-    "gh-pages": "^6.0.0"
+    "gh-pages": "^6.3.0"
   },
   "engines": {
     "node": ">=16.0.0"
