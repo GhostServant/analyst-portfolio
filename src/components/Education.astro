@@ -1,0 +1,291 @@
+---
+// Education.astro
+---
+
+<section id="education" class="education">
+  <div class="container">
+    <h2 class="section__title animate-slide-up">Образование</h2>
+    <div class="education-content">
+      <div class="education-card">
+        <div class="education-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+        </div>
+        <div class="education-details">
+          <h3 class="education-title">Южный федеральный университет (ЮФУ)</h3>
+          <p class="education-specialty">Системный анализ и внедрение IT-решений</p>
+          <p class="education-faculty">Институт компьютерных технологий и информационной безопасности (ИКТИБ)</p>
+          <div class="education-status">
+            <span class="status-badge">Студент</span>
+            <span class="graduation-year">Окончание: 2026</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="education-stats">
+        <div class="stat-item">
+          <div class="stat-number">2</div>
+          <div class="stat-label">курс</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">A2</div>
+          <div class="stat-label">английский</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">21</div>
+          <div class="stat-label">года</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section__title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    text-align: center;
+  }
+
+  .education {
+    padding: 3rem 0;
+    background: #1a1a24;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .education::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 20%, rgba(0, 212, 170, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(0, 212, 170, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .education-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .education-card {
+    background: #1e1a2a;
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    opacity: 0;
+    transform: translateY(50px) rotateX(15deg);
+    overflow: hidden;
+  }
+
+  .education-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.1), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+  }
+
+  .education-card:hover::before {
+    left: 100%;
+  }
+
+  .education-card.animate-in {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+
+  .education-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .education-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+  }
+
+  .education-card:hover .education-icon {
+    transform: scale(1.1) rotateY(15deg);
+    box-shadow: 0 8px 20px rgba(0, 212, 170, 0.3);
+  }
+
+  .education-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .education-specialty {
+    font-size: 1rem;
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .education-faculty {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .education-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .status-badge {
+    background: var(--accent-color);
+    color: var(--text-primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .graduation-year {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+
+  .education-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: #1e1a2a;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .stat-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stat-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .education-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .education-stats {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .stat-item {
+      flex: 1;
+      padding: 1rem;
+    }
+
+    .section__title {
+      font-size: 1.8rem;
+    }
+
+    .education-card {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .education-stats {
+      flex-direction: column;
+    }
+
+    .stat-item {
+      padding: 1rem;
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Анимация при скролле
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate-in');
+        }, index * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.education-card, .stat-item').forEach(el => observer.observe(el));
+</script>

@@ -1,0 +1,39 @@
+{
+  "name": "nikita-zvorygin-portfolio",
+  "description": "Персональный сайт-портфолио стажера-системного аналитика Никиты Зворыгина",
+  "type": "module",
+  "version": "1.0.0",
+  "author": "Никита Зворыгин",
+  "license": "MIT",
+  "homepage": "https://github.com/nikizv/portfolio#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikizv/portfolio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "system-analyst",
+    "astro",
+    "frontend",
+    "uml",
+    "bpmn"
+  ],
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "npm run build && npm run deploy:gh-pages",
+    "deploy:gh-pages": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "astro": "^4.0.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

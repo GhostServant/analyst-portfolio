@@ -1,0 +1,502 @@
+---
+// Projects.astro
+---
+
+<section id="projects" class="projects">
+  <div class="container">
+    <h2 class="section__title animate-slide-up">Проекты</h2>
+    <div class="projects-grid">
+      <!-- UML диаграммы -->
+      <a href="/files/uml-diagrams.pdf" download class="project-card" data-type="download" data-project="uml">
+        <div class="project-image">
+          <div class="project-visual project-visual--uml"></div>
+        </div>
+        <h3 class="project-title">UML диаграммы</h3>
+        <p class="project-description">Диаграммы классов, последовательности, состояний для системы управления.</p>
+        <div class="project-meta">
+          <span class="project-type">PDF</span>
+        </div>
+      </a>
+      
+      <!-- BPMN моделирование -->
+      <a href="/files/bpmn-processes.pdf" download class="project-card" data-type="download" data-project="bpmn">
+        <div class="project-image">
+          <div class="project-visual project-visual--bpmn"></div>
+        </div>
+        <h3 class="project-title">BPMN процессы</h3>
+        <p class="project-description">Моделирование бизнес-процессов, выявление узких мест и оптимизация.</p>
+        <div class="project-meta">
+          <span class="project-type">PDF</span>
+        </div>
+      </a>
+      
+      <!-- SQL запросы -->
+      <a href="/files/sql-examples.sql" download class="project-card" data-type="download" data-project="sql">
+        <div class="project-image">
+          <div class="project-visual project-visual--sql"></div>
+        </div>
+        <h3 class="project-title">SQL запросы</h3>
+        <p class="project-description">Примеры сложных запросов, оптимизация производительности БД.</p>
+        <div class="project-meta">
+          <span class="project-type">SQL</span>
+        </div>
+      </a>
+      
+      <!-- Frontend проекты -->
+      <a href="https://github.com/nikizv/frontend-projects" target="_blank" rel="noopener noreferrer" class="project-card" data-type="link" data-project="frontend">
+        <div class="project-image">
+          <div class="project-visual project-visual--frontend"></div>
+        </div>
+        <h3 class="project-title">Frontend проекты</h3>
+        <p class="project-description">React приложения, HTML/CSS верстка, интерактивные компоненты.</p>
+        <div class="project-meta">
+          <span class="project-type">GitHub</span>
+        </div>
+      </a>
+      
+      <!-- Анализ требований -->
+      <a href="/files/requirements-analysis.pdf" download class="project-card" data-type="download" data-project="requirements">
+        <div class="project-image">
+          <div class="project-visual project-visual--requirements"></div>
+        </div>
+        <h3 class="project-title">Анализ требований</h3>
+        <p class="project-description">Спецификация требований, пользовательские истории, техническое задание.</p>
+        <div class="project-meta">
+          <span class="project-type">PDF</span>
+        </div>
+      </a>
+      
+      <!-- Системная архитектура -->
+      <a href="/files/system-architecture.pdf" download class="project-card" data-type="download" data-project="architecture">
+        <div class="project-image">
+          <div class="project-visual project-visual--architecture"></div>
+        </div>
+        <h3 class="project-title">Системная архитектура</h3>
+        <p class="project-description">Диаграммы архитектуры, компонентная модель, интеграционные схемы.</p>
+        <div class="project-meta">
+          <span class="project-type">PDF</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section__title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: var(--text-primary);
+    text-align: center;
+  }
+
+  .projects {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .projects::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 70%, rgba(0, 212, 170, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(0, 212, 170, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .project-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    opacity: 0;
+    transform: translateY(50px) rotateX(15deg) rotateY(10deg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.05), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .project-card:hover::before {
+    left: 100%;
+  }
+
+  .project-card.animate-in {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+
+  .project-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+
+  .project-image {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-tertiary);
+  }
+
+  .project-visual {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  /* Стили для визуализаций аналитики */
+  .project-visual--report {
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-visual--report::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 60%;
+    background: var(--accent-color);
+    opacity: 0.2;
+    border-radius: var(--radius);
+  }
+
+  .project-visual--report::after {
+    content: '📊';
+    position: absolute;
+    font-size: 3rem;
+    color: var(--accent-color);
+  }
+
+  .project-visual--dashboard {
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-visual--dashboard::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    background: var(--accent-color);
+    opacity: 0.2;
+    border-radius: var(--radius);
+  }
+
+  .project-visual--dashboard::after {
+    content: '📈';
+    position: absolute;
+    font-size: 3rem;
+    color: var(--accent-color);
+  }
+
+  .project-visual--bpmn {
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-visual--bpmn::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(0, 212, 170, 0.2);
+  }
+
+  .project-visual--bpmn::after {
+    content: '🔄';
+    position: absolute;
+    font-size: 2rem;
+    color: var(--accent-color);
+  }
+
+  .project-visual--data-quality {
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-visual--data-quality::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    border: 2px dashed var(--accent-color);
+    border-radius: var(--radius);
+  }
+
+  .project-visual--data-quality::after {
+    content: '⚠️';
+    position: absolute;
+    font-size: 2rem;
+    color: var(--accent-color);
+  }
+
+  .project-visual--requirements {
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-visual--requirements::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    background: var(--accent-color);
+    opacity: 0.1;
+    border-radius: var(--radius);
+  }
+
+  .project-visual--requirements::after {
+    content: '📋';
+    position: absolute;
+    font-size: 3rem;
+    color: var(--accent-color);
+  }
+
+  .project-visual--uml {
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-visual--uml::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    box-shadow: 0 0 0 4px rgba(0, 212, 170, 0.2);
+  }
+
+  .project-visual--uml::after {
+    content: '📊';
+    position: absolute;
+    font-size: 2rem;
+    color: var(--accent-color);
+  }
+
+  .project-visual--sql {
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-visual--sql::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    background: var(--accent-color);
+    opacity: 0.1;
+    border-radius: var(--radius);
+  }
+
+  .project-visual--sql::after {
+    content: '🗄️';
+    position: absolute;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+  }
+
+  .project-visual--frontend {
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-visual--frontend::before {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    background: var(--accent-color);
+    opacity: 0.2;
+    border-radius: var(--radius);
+  }
+
+  .project-visual--frontend::after {
+    content: '💻';
+    position: absolute;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+  }
+
+  .project-visual--architecture {
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .project-visual--architecture::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(0, 212, 170, 0.2);
+  }
+
+  .project-visual--architecture::after {
+    content: '🏗️';
+    position: absolute;
+    font-size: 2rem;
+    color: var(--accent-color);
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.5rem 1.5rem 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+    margin: 0 1.5rem 0.5rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .project-meta {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .project-type {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: rgba(0, 212, 170, 0.1);
+    color: var(--accent-color);
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { 
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Адаптивность */
+  @media (max-width: 992px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section__title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-card {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .project-image {
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section__title {
+      font-size: 1.8rem;
+    }
+
+    .project-title {
+      font-size: 1.15rem;
+    }
+
+    .project-description {
+      font-size: 0.9rem;
+    }
+
+    .project-image {
+      height: 160px;
+    }
+  }
+</style>
+
+<script>
+  // Анимация при скролле
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate-in');
+        }, index * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
+</script>
