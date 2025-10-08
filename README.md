@@ -50,8 +50,8 @@
 ### Установка
 ```bash
 # Клонирование репозитория
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
+git clone https://github.com/GhostServant/analyst-portfolio.git
+cd analyst-portfolio
 
 # Установка зависимостей
 npm install

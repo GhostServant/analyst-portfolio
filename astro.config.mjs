@@ -2,8 +2,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nikizv.github.io',
-  base: '/portfolio',
+  site: 'https://ghostservant.github.io',
+  base: '/analyst-portfolio',
   build: {
     assets: '_astro'
   },
