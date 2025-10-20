@@ -1,0 +1,40 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00a8cc;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="logoGradientLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4aa;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#00a8cc;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Фон -->
+  <rect width="40" height="40" rx="8" fill="url(#logoGradientLight)"/>
+  
+  <!-- Основной символ - схема/диаграмма -->
+  <g transform="translate(8, 8)">
+    <!-- Прямоугольники как элементы системы -->
+    <rect x="2" y="2" width="8" height="6" rx="1" fill="url(#logoGradient)" opacity="0.9"/>
+    <rect x="14" y="2" width="8" height="6" rx="1" fill="url(#logoGradient)" opacity="0.9"/>
+    <rect x="8" y="12" width="8" height="6" rx="1" fill="url(#logoGradient)" opacity="0.9"/>
+    
+    <!-- Соединительные линии -->
+    <path d="M10 8 L10 12" stroke="url(#logoGradient)" stroke-width="1.5" fill="none"/>
+    <path d="M18 5 L14 5" stroke="url(#logoGradient)" stroke-width="1.5" fill="none"/>
+    <path d="M14 5 L14 12" stroke="url(#logoGradient)" stroke-width="1.5" fill="none"/>
+    
+    <!-- Точки соединения -->
+    <circle cx="10" cy="8" r="1" fill="url(#logoGradient)"/>
+    <circle cx="18" cy="5" r="1" fill="url(#logoGradient)"/>
+    <circle cx="14" cy="5" r="1" fill="url(#logoGradient)"/>
+    <circle cx="14" cy="12" r="1" fill="url(#logoGradient)"/>
+  </g>
+  
+  <!-- Декоративные элементы -->
+  <circle cx="6" cy="6" r="1" fill="url(#logoGradient)" opacity="0.4"/>
+  <circle cx="34" cy="6" r="1" fill="url(#logoGradient)" opacity="0.4"/>
+  <circle cx="6" cy="34" r="1" fill="url(#logoGradient)" opacity="0.4"/>
+  <circle cx="34" cy="34" r="1" fill="url(#logoGradient)" opacity="0.4"/>
+</svg>
